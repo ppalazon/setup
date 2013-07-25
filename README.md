@@ -1,5 +1,5 @@
-setup.git
-=========
+Setup Dev Environment
+=====================
 Setup dev environment for Ubuntu operating system
 
 ```sh
