@@ -1,48 +1,32 @@
 #!/bin/bash
 # Simple setup.sh for configuring Ubuntu 12.04 LTS EC2 instance
-# for headless setup. 
+# for headless setup.
 
-# Install nvm: node-version manager
-# https://github.com/creationix/nvm
+workdir=realpath ./
+
+# Install development dependencies
 sudo apt-get install -y git
 sudo apt-get install -y curl
-curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+sudo apt-get install -y pip
+sudo apt-get install -y ntp
 
-# Load nvm and install latest production node
-source $HOME/.nvm/nvm.sh
-nvm install v0.10.12
-nvm use v0.10.12
+# Install bash-it
+if[ -d ~/.bash_it ]; then
+    git clone http://github.com/revans/bash-it.git ~/.bash_it
+    ~/.bash_it/install.sh
+    echo 'You must re-login, or check your bash terminal as login terminal'
+fi
 
-# Install jshint to allow checking of JS code within emacs
-# http://jshint.com/
-npm install -g jshint
+# Configure virtualenv
+sudo pip install nodeenv
+
+# Install rvm
+curl -L https://get.rvm.io | bash -s stable
 
 # Install rlwrap to provide libreadline features with node
 # See: http://nodejs.org/api/repl.html#repl_repl
 sudo apt-get install -y rlwrap
 
-# Install emacs24
-# https://launchpad.net/~cassou/+archive/emacs
-sudo apt-add-repository -y ppa:cassou/emacs
-sudo apt-get -qq update
-sudo apt-get install -y emacs24-nox emacs24-el emacs24-common-non-dfsg
-
-# Install Heroku toolbelt
-# https://toolbelt.heroku.com/debian
-wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-
-# git pull and install dotfiles as well
-cd $HOME
-if [ -d ./dotfiles/ ]; then
-    mv dotfiles dotfiles.old
-fi
-if [ -d .emacs.d/ ]; then
-    mv .emacs.d .emacs.d~
-fi
-git clone https://github.com/startup-class/dotfiles.git
-ln -sb dotfiles/.screenrc .
-ln -sb dotfiles/.bash_profile .
-ln -sb dotfiles/.bashrc .
-ln -sb dotfiles/.bashrc_custom .
-ln -sf dotfiles/.emacs.d .
-
+ln -s ${workdir}/bash-it/aliases/custom.aliases.bash ../.bash_it/aliases/
+ln -s ${workdir}/bash-it/lib/custom.bash ../.bash_it/lib/
+ln -s ${workdir}/bash-it/plugins/custom.plugins.bash ../.bash_it/plugins/
