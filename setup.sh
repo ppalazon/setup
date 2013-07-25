@@ -9,6 +9,7 @@ sudo apt-get install -y git
 sudo apt-get install -y curl
 sudo apt-get install -y pip
 sudo apt-get install -y ntp
+sudo apt-get install -y build-essential
 
 # Install bash-it
 if[ -d ~/.bash_it ]; then
