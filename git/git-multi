@@ -1,0 +1,31 @@
+#!/bin/sh
+
+scriptpath=$(cd "${0%/*}" 2>/dev/null; echo "$PWD"/"${0##*/}")
+workdir=$(dirname $scriptpath)
+cd $workdir
+
+if [ ! "$1" = "" ] ; then
+
+   if [ "$workdir" != "" ] ; then
+
+      notify-send --icon=gnome-run GitWorkspace "git $@"
+      echo "Git repositories found in $workdir"
+      echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-"
+
+      DIRS="`/bin/ls -1 $workdir`"
+
+      for dir in $DIRS ; do
+
+         if [ -d $workdir/$dir/.git ] ; then
+            echo "$dir -> git $1"
+            cd $workdir/$dir ; git $@
+            echo
+         fi
+
+      done
+   else
+
+      echo "Git repositories not found."
+
+   fi
+fi
