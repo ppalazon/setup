@@ -1,6 +1,8 @@
 alias emacs='emacsclient -t'
 alias sudoemacs="SUDO_EDITOR=\"emacsclient -t\" sudo -e"
 
+## https://github.com/builddoctor/maven-antsy-color/blob/master/mvn
+
 alias maven="command mvn"
 color_maven() {
     maven $* | sed -e 's/Tests run: \([^,]*\), Failures: \([^,]*\), Errors: \([^,]*\), Skipped: \([^,]*\)/[1;32mTests run: \1[0m, Failures: [1;31m\2[0m, Errors: [1;33m\3[0m, Skipped: [1;34m\4[0m/g' \
