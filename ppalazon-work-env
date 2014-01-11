@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+export USER_BIN=~/bin
+export JAVA_HOME=/opt/java/default-jdk
+export JRE_HOME=/opt/java/default-jdk
+export PROYECTOS=/proyectos/projects
+export JAVA_TOOLS=/proyectos/javatools
+export M2_HOME=${JAVA_TOOLS}/apache-maven/maven
+export ANT_HOME=${JAVA_TOOLS}/apache-ant-1.8.2
+export FORGE_HOME=${JAVA_TOOLS}/forge/forge-link
+export DEFAULT_PLUGIN_REPO=/proyectos/lab/java/forge/repository
+export JBOSS_HOME=${JAVA_TOOLS}/jboss-as-7.1.1.Final
+export JBOSS7_HOME=${JAVA_TOOLS}/jboss-as-7.1.1.Final
+export WORKSPACE=/proyectos/work
+export CATALINA_HOME=${JAVA_TOOLS}/apache-tomcat-6.0.35
+export PLAY_HOME=${JAVA_TOOLS}/play2/play-2.2.1/
+export JMETER_HOME=${JAVA_TOOLS}/jmeter/apache-jmeter-2.7
+export CEYLON_HOME=${JAVA_TOOLS}/ceylon/ceylon-0.4
