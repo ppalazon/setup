@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 export USER_BIN=~/bin
-export JAVA_HOME=/opt/java/default-jdk
-export JRE_HOME=/opt/java/default-jdk
+export JAVA_HOME=/usr/lib/jvm/default-java
+export JRE_HOME=/usr/lib/jvm/default-java
 export PROYECTOS=/proyectos/projects
 export JAVA_TOOLS=/opt/javatools
 export M2_HOME=${JAVA_TOOLS}/maven/apache-maven-3.1.1
