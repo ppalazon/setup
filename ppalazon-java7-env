@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-export USER_BIN=${HOME}/bin
-export JAVA_HOME=/opt/java/default-jdk
-export JRE_HOME=/opt/java/default-jdk
+export USER_BIN=~/bin
+export JAVA_HOME=/opt/java/jdk1.7.0_51
+export JRE_HOME=/opt/java/jdk1.7.0_51/jre
 export PROYECTOS=/proyectos/projects
 export JAVA_TOOLS=/proyectos/javatools
-export M2_HOME=${JAVA_TOOLS}/apache-maven/apache-maven-3.2.1
+export M2_HOME=${JAVA_TOOLS}/apache-maven/apache-maven-3.1.1
 export ANT_HOME=${JAVA_TOOLS}/apache-ant-1.8.2
 export FORGE_HOME=${JAVA_TOOLS}/forge/forge-distribution-2.2.0.Final
 export DEFAULT_PLUGIN_REPO=/proyectos/lab/java/forge/repository
@@ -19,22 +19,14 @@ export CEYLON_HOME=${JAVA_TOOLS}/ceylon/ceylon-0.4
 export JBAKE_HOME=/opt/jbake/jbake-2.2.1
 export RVM_DIST=${HOME}/.rvm
 export VIRTUAL_ENV_DIST=${HOME}/virtualenv/virtualenv-1.11.2
-export VIRTUAL_ENV_VERSION=${HOME}/virtualenv/venv-1.11.2
-export NODE_ENV_VERSION=${HOME}/nodeenv/default
-export GOROOT=${HOME}/go/go-1.2.1
-
-export WINEARCH=win32
-export WINEPREFIX=`pwd ${HOME}`/.wine32
+export VIRTUAL_ENV_VERSION=$HOME/virtualenv/venv-1.11.2
 
 # Export PATH
 export PATH=${PATH_BASE}
-export PATH=${USER_BIN}:${JAVA_HOME}/bin:${M2_HOME}/bin:${ANT_HOME}/bin:${FORGE_HOME}/bin:${PLAY_HOME}:${JBAKE_HOME}:${VIRTUAL_ENV_DIST}:${GOROOT}/bin:$PATH
+export PATH=${JAVA_HOME}/bin:${M2_HOME}/bin:${ANT_HOME}/bin:${FORGE_HOME}/bin:${PLAY_HOME}:${JBAKE_HOME}:${VIRTUAL_ENV_DIST}:$PATH
 
 # Load RVM, if you are using it
 [[ -s $RVM_DIST/scripts/rvm ]] && source $RVM_DIST/scripts/rvm
 
 # VirtualEnv python
-[[ -s ${VIRTUAL_ENV_VERSION}/base/bin/activate ]] && source ${VIRTUAL_ENV_VERSION}/base/bin/activate
-
-# Node environment
-[[ -s ${NODE_ENV_VERSION}/bin/activate ]] && source ${NODE_ENV_VERSION}/bin/activate
+[[ -s $VIRTUAL_ENV_BASE/base/bin/activate ]] && source $VIRTUAL_ENV_BASE/base/bin/activate
