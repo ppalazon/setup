@@ -64,8 +64,5 @@ export PATH=${USER_BIN}:${JAVA_HOME}/bin:${M2_HOME}/bin:${GOROOT}/bin:${FLEET_HO
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
-# Load sdkman, http://sdkman.io/index.html
-source "/home/ppalazon/.sdkman/bin/sdkman-init.sh"
-
 # Load RVM, if you are using it
 # [[ -s $RVM_DIST/scripts/rvm ]] && source $RVM_DIST/scripts/rvm
