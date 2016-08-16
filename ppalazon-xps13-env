@@ -1,40 +1,47 @@
 #!/usr/bin/env bash
 
-export USER_BIN=${HOME}/workspace/environment/scripts
+export USER_BIN=${HOME}/bin
 
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
-export JRE_HOME=/usr/lib/jvm/java-7-oracle/jre
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre
 export JAVA_TOOLS=/opt/javatools
-export M2_HOME=${JAVA_TOOLS}/apache-maven/apache-maven-3.2.3
-export ANT_HOME=${JAVA_TOOLS}/ant/apache-ant-1.9.4
-export FORGE_HOME=${JAVA_TOOLS}/forge/forge-distribution-2.2.0.Final
+export M2_HOME=${JAVA_TOOLS}/apache-maven/apache-maven-3.3.9
+#export ANT_HOME=${JAVA_TOOLS}/ant/apache-ant-1.9.4
+#export SBT_HOME=${JAVA_TOOLS}/sbt/sbt-0.13.11
 export JBOSS_HOME=${JAVA_TOOLS}/jboss-as/jboss-as-7.1.1.Final
 export JBOSS7_HOME=${JAVA_TOOLS}/jboss-as/jboss-as-7.1.1.Final
+export WILDFLY_HOME=${JAVA_TOOLS}/wildfly/wildfly-8.2.0.Final
 export WORKSPACE=${HOME}/workspace
 export CATALINA_HOME=${JAVA_TOOLS}/apache-tomcat-6.0.35
-export PLAY_HOME=${JAVA_TOOLS}/play2/play-2.2.1/
 export JMETER_HOME=${JAVA_TOOLS}/jmeter/apache-jmeter-2.7
-export CEYLON_HOME=${JAVA_TOOLS}/ceylon/ceylon-0.4
-export JBAKE_HOME=${JAVA_TOOLS}/jbake/jbake-2.3.2
+#export CEYLON_HOME=${JAVA_TOOLS}/ceylon/ceylon-0.4
+#export JBAKE_HOME=${JAVA_TOOLS}/jbake/jbake-2.3.2
 export WALKMOD_HOME=${JAVA_TOOLS}/walkmod/walkmod-1.0.8
-export GRADLE_HOME=${JAVA_TOOLS}/gradle/gradle-2.2.1
-export ACTIVATOR_HOME=${JAVA_TOOLS}/activator/activator-1.2.12
+#export GRADLE_HOME=${JAVA_TOOLS}/gradle/gradle-2.2.1
+#export ACTIVATOR_HOME=${JAVA_TOOLS}/activator/activator-dist-1.3.7
+export VAULT_HOME=/opt/vault/vault-0.1.1
+export PMD_HOME=/opt/javatools/pmd/pmd-bin-5.4.1
+export FINDBUGS_HOME=/opt/javatools/findbugs/findbugs-3.0.1
+
+export ANDROID_HOME=/opt/android/android-sdk-linux
 
 export ADDON_SDK=/opt/firefox/addon-sdk/addon-sdk-1.17
 
 export VIRTUAL_ENV_DEV=${WORKSPACE}/virtual-env
 export RVM_DIST=${VIRTUAL_ENV_DEV}/rvm
-export VIRTUAL_ENV_DIST=${VIRTUAL_ENV_DEV}/virtualenv/virtualenv-12.0.6
 export VIRTUAL_ENV_VERSION=${VIRTUAL_ENV_DEV}/virtualenv/antara-dev
 export NODE_ENV_VERSION=${VIRTUAL_ENV_DEV}/nodeenv/antara-dev
 export GOROOT=${VIRTUAL_ENV_DEV}/go/go-1.2.1
 export GOPATH=${VIRTUAL_ENV_DEV}/go/workspace
 export BASH_IT=${WORKSPACE}/environment/bash_it
+# Emacs
+export CASK_HOME=${WORKSPACE}/environment/emacs/cask
 
 export FLEET_HOME=/opt/fleet/fleet-v0.2.0-linux-amd64
 
-# Emacs
-export CASK_HOME=~/workspace/environment/emacs/cask
+export CONSUL_HOME=/opt/consul/consul-0.5.0
+
+export EC2_HOME=/opt/ec2-tools/ec2-api-tools-1.7.3.0
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
@@ -42,10 +49,11 @@ export BASH_IT_THEME='bobby'
 
 # Export PATH
 export PATH=${PATH_BASE}
-export PATH=${USER_BIN}:${JAVA_HOME}/bin:${M2_HOME}/bin:${ANT_HOME}/bin:${FORGE_HOME}/bin:${PLAY_HOME}:${VIRTUAL_ENV_DIST}:${GOROOT}/bin:${FLEET_HOME}:${JBAKE_HOME}/bin:${WALKMOD_HOME}/bin:${GRADLE_HOME}/bin:${CASK_HOME}/bin:${ACTIVATOR_HOME}:$PATH
+#export PATH=${USER_BIN}:${JAVA_HOME}/bin:${M2_HOME}/bin:${ANT_HOME}/bin:${SBT_HOME}/bin::${GOROOT}/bin:${FLEET_HOME}:${JBAKE_HOME}/bin:${WALKMOD_HOME}/bin:${GRADLE_HOME}/bin:${CASK_HOME}/bin:${ACTIVATOR_HOME}:${CONSUL_HOME}:${EC2_HOME}/bin:${VAULT_HOME}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PMD_HOME}/bin:${FINDBUGS_HOME}/bin:$PATH
+export PATH=${USER_BIN}:${JAVA_HOME}/bin:${M2_HOME}/bin:${GOROOT}/bin:${FLEET_HOME}:${WALKMOD_HOME}/bin:${CASK_HOME}/bin:${CONSUL_HOME}:${EC2_HOME}/bin:${VAULT_HOME}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PMD_HOME}/bin:${FINDBUGS_HOME}/bin:$PATH
 
 # VirtualEnv python
-[[ -s ${VIRTUAL_ENV_VERSION}/bin/activate ]] && source ${VIRTUAL_ENV_VERSION}/bin/activate
+# [[ -s ${VIRTUAL_ENV_VERSION}/bin/activate ]] && source ${VIRTUAL_ENV_VERSION}/bin/activate
 
 # Node environment
 [[ -s ${NODE_ENV_VERSION}/bin/activate ]] && source ${NODE_ENV_VERSION}/bin/activate
@@ -56,5 +64,8 @@ export PATH=${USER_BIN}:${JAVA_HOME}/bin:${M2_HOME}/bin:${ANT_HOME}/bin:${FORGE_
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
+# Load sdkman, http://sdkman.io/index.html
+source "/home/ppalazon/.sdkman/bin/sdkman-init.sh"
+
 # Load RVM, if you are using it
-[[ -s $RVM_DIST/scripts/rvm ]] && source $RVM_DIST/scripts/rvm
+# [[ -s $RVM_DIST/scripts/rvm ]] && source $RVM_DIST/scripts/rvm
